@@ -12,7 +12,4 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     
     volumes:
-      - postgres_pizzaria_pg_data:/postgresql
-
-volumes:
-  postgres_pizzaria_pg_data:
+      - ./data:/var/lib/postgresql/data

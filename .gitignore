@@ -1,3 +1,9 @@
-node_modules
-# Keep environment variables out of version control
+# Ignore backups
+postgres_pizzaria_backup.tar
+postgres_volume_backup.tar.gz
+
+# Ignore environment files
 .env
+
+# Ignore node_modules
+node_modules/

@@ -21,5 +21,64 @@ model User {
   created_at DateTime? @default(now())
   update_at DateTime? @default(now())
 
-  @@map("Users")
+  @@map("users")
 }
+
+model Category {
+  id String @id @default(uuid())
+  name String
+  crated_at DateTime? @default(now())
+  update_at DateTime? @default(now())
+
+  @@map("categories")
+  products Product[]
+}
+
+// 1-N (Category - Product)
+// 1-N (Product - Item)
+
+model Product {
+  id String @id @default(uuid())
+  name String
+  price String
+  description String
+  banner String
+
+  category Category @relation(fields: [category_id], references: [id]) 
+  @@map("products")
+  category_id String
+  items_id Item[]
+}
+
+model Order {
+  id String @id @default(uuid())
+  table Int
+  status Boolean @default(false)
+  draft Boolean @default(true)
+  name String?
+
+  crated_at DateTime? @default(now())
+  update_at DateTime? @default(now())
+
+  items Item[]
+
+  @@map("orders")
+}
+
+// 1-N (Order - Item)
+// 1-N (Product - Item)
+
+model Item{
+  id String @id @default(uuid())
+  amount Int
+
+  crated_at DateTime? @default(now())
+  update_at DateTime? @default(now())
+
+  order Order @relation(fields: [order_id], references: [id])
+  product Product @relation(fields: [product_id], references: [id])
+  @@map("items")
+  order_id String
+  product_id String
+}
+

@@ -7,3 +7,5 @@ postgres_volume_backup.tar.gz
 
 # Ignore node_modules
 node_modules/
+
+tmp/*

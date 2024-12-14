@@ -6,7 +6,7 @@ class CreateUserController {
     const { name, email, password } = req.body;
 
     const createUserService = new CreateUserService()
-    const user = await createUserService.cadastrando({
+    const user = await createUserService.createUser({
       name,
       email,
       password

@@ -8,7 +8,7 @@ interface UserRequest {
 }
 
 class CreateUserService {
-  async cadastrando({ name, email, password }: UserRequest) {
+  async createUser({ name, email, password }: UserRequest) {
     try {
       const userExistsEmail = await prismaCliente.user.findFirst({
         where: {

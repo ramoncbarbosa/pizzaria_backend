@@ -4,7 +4,7 @@ interface ProductRequest {
   category_id: string;
 }
 
-class FilterByCategoryService {
+class FilterProductsByCategoryService {
   async FilterCategory({ category_id }: ProductRequest) {
     try {
       const filterByCategoy = await prismaCliente.product.findMany({
@@ -22,4 +22,7 @@ class FilterByCategoryService {
   }
 }
 
-export { FilterByCategoryService }
+export {
+  FilterProductsByCategoryService
+}
+

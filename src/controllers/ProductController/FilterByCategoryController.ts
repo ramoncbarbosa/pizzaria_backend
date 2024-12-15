@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { FilterByCategoryService } from "../../services/FilterByCategoryService/FilterByCategoryService";
+import { FilterByCategoryService } from "../../services/ProductService/FilterByCategoryService";
 
 class FilterByCategoryController {
   async handle(req: Request, res: Response) {

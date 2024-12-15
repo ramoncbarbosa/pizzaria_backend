@@ -2,16 +2,16 @@ import { Router } from "express";
 
 import multer from "multer";
 
-import { CreateUserController } from "./controllers/User/CreateUserController";
-import { AuthUserController } from "./controllers/User/AuthUserController";
-import { DetailsUserController } from "./controllers/DetailsUserController/DetailsUserController";
+import { CreateUserController } from "./controllers/UserController/CreateUserController";
+import { AuthUserController } from "./controllers/UserController/AuthUserController";
+import { DetailsUserController } from "./controllers/UserController/DetailsUserController";
 import { isAuthenticated } from "./middlewares/isAuthenticated/isAuthenticated";
 import { CreateCategoryController } from "./controllers/CreateCategoryController/CreateCategoryController";
 import { ListCategoryController } from "./controllers/CreateCategoryController/ListCategoryController";
-import { CreateProductController } from "./controllers/CreateProductController/CreateProductController";
+import { CreateProductController } from "./controllers/ProductController/CreateProductController";
 
 import uploadConfig from "./config/multer";
-import { FilterByCategoryController } from "./controllers/FilterByCategoryController/FilterByCategoryController";
+import { FilterByCategoryController } from "./controllers/ProductController/FilterByCategoryController";
 
 const router = Router();
 

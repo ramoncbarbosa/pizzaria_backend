@@ -9,3 +9,5 @@ postgres_volume_backup.tar.gz
 node_modules/
 
 tmp/*
+
+data

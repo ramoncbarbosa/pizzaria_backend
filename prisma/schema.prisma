@@ -14,20 +14,20 @@ datasource db {
 }
 
 model User {
-  id String @id @default(uuid())
-  name String
-  email String @unique 
-  password String
+  id         String    @id @default(uuid())
+  name       String
+  email      String    @unique
+  password   String
   // role      String   @default("Client") or garçom
   created_at DateTime? @default(now())
-  update_at DateTime? @default(now())
+  update_at  DateTime? @default(now())
 
   @@map("users")
 }
 
 model Category {
-  id String @id @default(uuid())
-  name String
+  id        String    @id @default(uuid())
+  name      String
   crated_at DateTime? @default(now())
   update_at DateTime? @default(now())
 
@@ -39,24 +39,25 @@ model Category {
 // 1-N (Product - Item)
 
 model Product {
-  id String @id @default(uuid())
-  name String
-  price String
+  id          String @id @default(uuid())
+  name        String
+  price       String
   description String
-  banner String
+  banner      String
 
-  category Category @relation(fields: [category_id], references: [id]) 
+  category Category @relation(fields: [category_id], references: [id])
+
   @@map("products")
   category_id String
-  items_id Item[]
+  items_id    Item[]
 }
 
 model Order {
-  id String @id @default(uuid())
-  table Int
-  status Boolean @default(false)
-  draft Boolean @default(true)
-  name String?
+  id     String  @id @default(uuid())
+  table  Int
+  status Boolean @default(false) // diz se a cozinha já fez o prato do cliente, false = não esta pronto
+  draft  Boolean @default(true) // o draft true quer dizer que ainda esta em rascunho, logo a cozinha ainda não sabe da existência dele
+  name   String?
 
   crated_at DateTime? @default(now())
   update_at DateTime? @default(now())
@@ -69,17 +70,17 @@ model Order {
 // 1-N (Order - Item)
 // 1-N (Product - Item)
 
-model Item{
-  id String @id @default(uuid())
+model Item {
+  id     String @id @default(uuid())
   amount Int
 
   crated_at DateTime? @default(now())
   update_at DateTime? @default(now())
 
-  order Order @relation(fields: [order_id], references: [id])
+  order   Order   @relation(fields: [order_id], references: [id])
   product Product @relation(fields: [product_id], references: [id])
+
   @@map("items")
-  order_id String
+  order_id   String
   product_id String
 }
-

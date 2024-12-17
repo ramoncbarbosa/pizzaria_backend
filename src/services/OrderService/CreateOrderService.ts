@@ -8,7 +8,7 @@ interface OrderRequest {
 class CreateOrderService {
   async createOrder({ table, name }: OrderRequest) {
     try {
-      const order = await prismaCliente.order.create({
+      const orderCreate = await prismaCliente.order.create({
         data: {
           table: table,
           name: name,
@@ -28,7 +28,7 @@ class CreateOrderService {
 
 
 
-      return order;
+      return orderCreate;
     } catch {
       throw new Error("bad request!")
     }

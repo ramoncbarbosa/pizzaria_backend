@@ -59,7 +59,7 @@ model Order {
   draft  Boolean @default(true) // o draft true quer dizer que ainda esta em rascunho, logo a cozinha ainda não sabe da existência dele
   name   String?
 
-  crated_at DateTime? @default(now())
+  created_at DateTime? @default(now())
   update_at DateTime? @default(now())
 
   items Item[]
